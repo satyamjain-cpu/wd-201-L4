@@ -5,28 +5,28 @@ const { all, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
 
 describe("To do list test suits", () => {
   beforeAll(() => {
-    const presentDay = new Date();
+    const todayDate = new Date();
     const oneDay = 60 * 60 * 24 * 1000;
-    const yesterdayDate = new Date(presentDay.getTime() - 1 * oneDay);
-    const tomorrowDate = new Date(presentDay.getTime() + 1 * oneDay);
+    const yesterdayDate = new Date(todayDate.getTime() - 1 * oneDay);
+    const tomorrowDate = new Date(todayDate.getTime() + 1 * oneDay);
 
-    const today = presentDay.toLocaleDateString("en-CA");
+    const today = todayDate.toLocaleDateString("en-CA");
     const yesterday = yesterdayDate.toLocaleDateString("en-CA");
     const tomorrow = tomorrowDate.toLocaleDateString("en-CA");
 
     add({
-      title: "pay hotel bill",
+      title: "Pay Hostel Fee",
       dueDate: yesterday,
       completed: true,
     });
     add({
-      title: "Room rent bill",
+      title: "Pay Hospital bill",
       dueDate: today,
       completed: true,
     });
-    add({ title: "garage work", dueDate: today, completed: false });
-    add({ title: "assignment", dueDate: tomorrow, completed: false });
-    add({ title: "buying", dueDate: tomorrow, completed: false });
+    add({ title: "taxi service", dueDate: today, completed: false });
+    add({ title: "recruitment", dueDate: tomorrow, completed: false });
+    add({ title: "Dating", dueDate: tomorrow, completed: false });
   });
   test("should add new todo", () => {
     const todoItemCount = all.length;
